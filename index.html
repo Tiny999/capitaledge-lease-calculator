@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lease Calculator</title>
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <style>
+        #leaseTables{
+            display: none;
+        }
+
+        .table{
+            border: 1px solid #333;
+        }
+
+        .table tfoot{
+            text-align: right;
+        }
+        
+        @media print {
+        #leaseForm,
+        #getPdf {
+          display: none;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="leaseForm">
+                    <div class="form-group mb-2">
+                        <label>Lease Amount</label>
+                        <input id="leaseAmount" type="number" step="0.01" class="form-control" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Duration in months</label>
+                        <input id="duration" type="number" class="form-control" required>
+                    </div>
+                    <div class="form-group mb-2">
+                        <label>Percentage</label>
+                        <input id="percentage" type="number" step="0.01" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calculate Lease</button>
+                </form>
+            </div>
+            <div class="col-md-6"></div>
+            <div id="leaseTables">
+                <div class="text-center my-3">
+                    <h6>Capital Edge Investment Support Limited</h6>
+                    <h6>ASSET LEASE CALCULATION</h6>
+                </div>
+                <table id="breakdown" class="table table-bordered"></table>
+                <table id="payments" class="table table-bordered mt-4"></table>
+
+                <div class="mt-5">
+                    <p class="mb-2"><strong>Total Interest : </strong>Principal &times; Duration &times; Percentage</p>
+                    <p class="mb-2"><strong>Insurance : </strong>5% of Principal</p>
+                    <p class="mb-2"><strong>Admin : </strong>2% of Principal</p>
+                    <p class="mb-2"><strong>VAT : </strong>7.5% of Total Interest</p>
+                    <p class="mb-2"><strong>Initial Repayment : </strong>Insurance + Admin + VAT</p>
+                    <p class="mb-2"><strong>Upfront Repayment : </strong>5% of Principal</p>
+                    <p class="mb-2"><strong>Total Repayment : </strong>Principal + Total Interest + Insurance + Admin + VAT </p>
+                </div>
+            </div>
+            <div id="getPdf" class="mt-2">
+                
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script src="./app.js"></script>
+</body>
+</html>
